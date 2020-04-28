@@ -1,4 +1,4 @@
-type ProgressBarModel = {
+export type ProgressTrackModel = {
   title: string;
   level: {
     value: string;
@@ -8,5 +8,3 @@ type ProgressBarModel = {
   max: number;
   current: number;
 };
-
-export default ProgressBarModel;

@@ -1,15 +1,15 @@
 {
-  "name": "iron-sagas",
+  "name": "iron-sagas-initital-screen-mockup",
   "version": "0.1.0",
   "private": true,
   "main": "src/index.tsx",
   "dependencies": {
     "@material-ui/core": "4.9.12",
     "@material-ui/icons": "4.9.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-redux": "7.2.0",
-    "react-scripts-ts": "^2.13.0",
+    "react-scripts-ts": "3.1.0",
     "redux": "4.0.5"
   },
   "scripts": {
@@ -26,5 +26,5 @@
     "typescript": "^2.7.2"
   },
   "keywords": [],
-  "description": "Adding types to React!"
+  "description": ""
 }

@@ -1,11 +1,15 @@
 import React from "react";
-import * as Material from "@material-ui/core";
-import ProgressBarsContainer from "./containers/ProgressBars";
+import "./App.css";
+import ProgressTracksContainer from "./containers/ProgressTracks";
+import EventsContainer from "./containers/Events";
+import EventWriterContainer from "./containers/EventWriter";
 
 export default function App() {
   return (
     <div className="App">
-      <ProgressBarsContainer />
+      <EventsContainer />
+      <EventWriterContainer />
+      <ProgressTracksContainer />
     </div>
   );
 }

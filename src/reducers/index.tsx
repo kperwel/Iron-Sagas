@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
-import progressBars from "./ProgressBars";
+import { progressTracks } from "./ProgressTracks";
+import { events } from "./Events";
 
 export default combineReducers({
-  progressBars
+  progressTracks,
+  events
 });
