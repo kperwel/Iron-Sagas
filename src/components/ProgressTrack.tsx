@@ -29,7 +29,7 @@ export default (props: Props) => {
           subheader={track.level.value}
         />
         <Material.CardActions>
-          <Material.IconButton onClick={() => props.increment()}>
+          <Material.IconButton onClick={props.decrement}>
             <Icons.Remove />
           </Material.IconButton>
           <Material.Slider
@@ -39,7 +39,7 @@ export default (props: Props) => {
             value={track.current}
             step={track.level.step}
           />
-          <Material.IconButton onClick={() => props.decrement()}>
+          <Material.IconButton onClick={props.increment}>
             <Icons.Add />
           </Material.IconButton>
         </Material.CardActions>

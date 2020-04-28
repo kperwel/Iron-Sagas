@@ -14,7 +14,6 @@ const EventWriter = (props: Props) => {
       <Material.Input inputRef={ref} />
       <Material.Button
         onClick={() => {
-          console.log(ref.current);
           props.addEvent({
             type: EventType.Story,
             content: ref.current.value

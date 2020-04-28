@@ -41,28 +41,26 @@ const mapStateToProps = (state: any) => ({
   progressTracks: state.progressTracks
 });
 
-const createUpdateAction: (
-  step: number,
-  id: number,
-  track: ProgressTrackModel
-) => UpdateProgressTrack = (step, id, track) => ({
-  type: ActionType.UPDATE_PROGRESS_TRACK,
-  payload: {
-    id: id,
-    updatedTrack: {
-      ...track,
-      current: Math.max(track.min, Math.min(track.max + step))
-    }
-  }
-});
-
 const mapDispatchToActions = (dispatch: any) => ({
   emitUpdateProgressTrack: (
     step: number,
     id: number,
     track: ProgressTrackModel
   ) => () => {
-    dispatch(createUpdateAction(step, id, track));
+    const action: UpdateProgressTrack = {
+      type: ActionType.UPDATE_PROGRESS_TRACK,
+      payload: {
+        id: id,
+        updatedTrack: {
+          ...track,
+          current: Math.max(
+            track.min,
+            Math.min(track.max, track.current + step)
+          )
+        }
+      }
+    };
+    dispatch(action);
   }
 });
 
