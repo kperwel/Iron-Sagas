@@ -1,12 +1,10 @@
-import { EventModel } from "../models/EventModel";
-import { FAS } from "./FluxStandardAction";
-import { ActionType } from "./ActionType";
+import { EventModel } from '../models/EventModel';
+import { FAS } from './FluxStandardAction';
 
 export type Payload = {
   newEvent: EventModel;
 };
 
 export type AddEvent = FAS & {
-  type: ActionType.ADD_PROGRESS_TRACK;
   payload: Payload;
 };

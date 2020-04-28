@@ -1,15 +1,13 @@
-import React, { Dispatch } from "react";
-import { EventWriter } from "./../components/EventWriter";
-import { EventModel } from "./../models/EventModel";
-import { connect } from "react-redux";
-import { AddEvent } from "../actions/AddEvent";
-import { ActionType } from "../actions/ActionType";
+import * as React from 'react';
+import { EventWriter } from './../components/EventWriter';
+import { EventModel } from './../models/EventModel';
+import { connect } from 'react-redux';
+import { AddEvent } from '../actions/AddEvent';
+import { ActionType } from '../actions/ActionType';
 
 type Props = {
-  dispatch: Dispatch<any>;
+  dispatch: React.Dispatch<any>;
 };
-
-const emitAddEvent = () => {};
 
 const EventsWriterContainer = (props: Props) => (
   <div>

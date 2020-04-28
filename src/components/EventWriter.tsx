@@ -1,14 +1,13 @@
-import React from "react";
-import * as Material from "@material-ui/core";
-import { EventModel, EventType } from "./../models/EventModel";
+import * as React from 'react';
+import * as Material from '@material-ui/core';
+import { EventModel, EventType } from './../models/EventModel';
 
 type Props = {
-  text: string;
   addEvent: (event: EventModel) => void;
 };
 
 const EventWriter = (props: Props) => {
-  const ref = React.createRef();
+  const ref = React.createRef<any>();
   return (
     <div>
       <Material.Input inputRef={ref} />
@@ -18,7 +17,7 @@ const EventWriter = (props: Props) => {
             type: EventType.Story,
             content: ref.current.value
           });
-          ref.current.value = "";
+          ref.current.value = '';
         }}
       >
         Send

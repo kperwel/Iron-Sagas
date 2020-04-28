@@ -1,6 +1,6 @@
-import React from "react";
-import * as Material from "@material-ui/core";
-import { EventModel, EventType } from "./../models/EventModel";
+import * as React from 'react';
+import * as Material from '@material-ui/core';
+import { EventModel, EventType } from './../models/EventModel';
 
 const Event = (event: EventModel) => (
   <Material.Card>

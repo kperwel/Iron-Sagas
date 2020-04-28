@@ -1,7 +1,7 @@
-import React from "react";
-import { Event } from "./../components/Event";
-import { connect } from "react-redux";
-import { EventModel } from "./../models/EventModel";
+import * as React from 'react';
+import { Event } from './../components/Event';
+import { connect } from 'react-redux';
+import { EventModel } from './../models/EventModel';
 
 type Props = {
   events: EventModel[];

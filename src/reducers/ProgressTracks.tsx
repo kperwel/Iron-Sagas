@@ -1,8 +1,8 @@
-import { UpdateProgressTrack } from "../actions/UpdateProgressTrack";
-import { atIndex } from "../utils/Functional";
-import { ActionType } from "../actions/ActionType";
-import { FAS } from "../actions/FluxStandardAction";
-import { ProgressTrackModel } from "../models/ProgressTrackModel";
+import { UpdateProgressTrack } from '../actions/UpdateProgressTrack';
+import { atIndex } from '../utils/Functional';
+import { ActionType } from '../actions/ActionType';
+import { FAS } from '../actions/FluxStandardAction';
+import { ProgressTrackModel } from '../models/ProgressTrackModel';
 
 type ProgressTracksState = ProgressTrackModel[];
 
@@ -13,9 +13,9 @@ type Handler<A extends FAS> = (
 
 const initialState: ProgressTracksState = [
   {
-    title: "Recover lost sword of sharpness +1",
+    title: 'Recover lost sword of sharpness +1',
     level: {
-      value: "Epic",
+      value: 'Epic',
       step: 0.5
     },
     min: 0,

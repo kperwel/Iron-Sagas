@@ -1,7 +1,7 @@
-import React from "react";
-import * as Material from "@material-ui/core";
-import * as Icons from "@material-ui/icons";
-import { ProgressTrackModel } from "../models/ProgressTrackModel";
+import * as React from 'react';
+import * as Material from '@material-ui/core';
+import * as Icons from '@material-ui/icons';
+import { ProgressTrackModel } from '../models/ProgressTrackModel';
 
 const range = (start: number, end: number) =>
   Array.from({ length: end - start }, (v, k) => k + start);

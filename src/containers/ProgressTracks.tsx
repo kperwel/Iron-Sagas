@@ -1,9 +1,9 @@
-import React from "react";
-import ProgressTrack from "./../components/ProgressTrack";
-import { connect } from "react-redux";
-import { ProgressTrackModel } from "../models/ProgressTrackModel";
-import { UpdateProgressTrack } from "../actions/UpdateProgressTrack";
-import { ActionType } from "../actions/ActionType";
+import * as React from 'react';
+import ProgressTrack from './../components/ProgressTrack';
+import { connect } from 'react-redux';
+import { ProgressTrackModel } from '../models/ProgressTrackModel';
+import { UpdateProgressTrack } from '../actions/UpdateProgressTrack';
+import { ActionType } from '../actions/ActionType';
 
 type Props = {
   progressTracks: ProgressTrackModel[];
@@ -13,8 +13,6 @@ type Props = {
     track: ProgressTrackModel
   ) => () => void;
 };
-
-type Connector = (state?: any, dispatch?: any) => Props;
 
 const ProgressTracksContainer = (props: Props) => (
   <div>
