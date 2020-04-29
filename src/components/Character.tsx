@@ -27,11 +27,10 @@ const Character = (character: CharacterModel) => (
   <Material.Card>
     <Material.CardHeader title={character.name} />
     <Material.CardContent>
-      {JSON.stringify(character)}
-      <Stats stats={...Array.from(character.stats)} />
-      <Experience experience={character.experience} />
+    <Stats stats={...Array.from(character.stats)} />
+    <Experience experience={character.experience} />
     </Material.CardContent>
-  </Material.Card>
+  </Material.Card >
 );
 
 export { Character };
