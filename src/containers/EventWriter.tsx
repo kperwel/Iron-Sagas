@@ -1,29 +1,19 @@
 import * as React from 'react';
 import { EventWriter } from './../components/EventWriter';
-import { EventModel } from './../models/EventModel';
-import { connect } from 'react-redux';
-import { AddEvent } from '../actions/AddEvent';
-import { ActionType } from '../actions/ActionType';
+import { useDispatch } from 'react-redux';
+import { addEvent } from '../actions/AddEvent';
+import { EventType } from '../models/EventModel';
 
-type Props = {
-  dispatch: React.Dispatch<any>;
+export default () => {
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <EventWriter
+        addEvent={(text) => dispatch(addEvent({
+          type: EventType.Story,
+          content: text
+        }))}
+      />
+    </div>
+  );
 };
-
-const EventsWriterContainer = (props: Props) => (
-  <div>
-    <EventWriter
-      addEvent={(event: EventModel) => {
-        const action: AddEvent = {
-          type: ActionType.ADD_EVENT,
-          payload: { newEvent: event }
-        };
-        props.dispatch(action);
-      }}
-    />
-  </div>
-);
-
-export default connect(
-  null,
-  null
-)(EventsWriterContainer);

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import * as Material from '@material-ui/core';
-import { EventModel, EventType } from './../models/EventModel';
 
 type Props = {
-  addEvent: (event: EventModel) => void;
+  addEvent: (text: string) => void;
 };
 
 const EventWriter = (props: Props) => {
@@ -13,10 +12,7 @@ const EventWriter = (props: Props) => {
       <Material.Input inputRef={ref} />
       <Material.Button
         onClick={() => {
-          props.addEvent({
-            type: EventType.Story,
-            content: ref.current.value
-          });
+          props.addEvent(ref.current.value);
           ref.current.value = '';
         }}
       >

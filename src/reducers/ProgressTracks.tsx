@@ -1,15 +1,10 @@
-import { UpdateProgressTrack } from '../actions/UpdateProgressTrack';
-import { atIndex } from '../utils/Functional';
+import { MarkProgress } from '../actions/MarkProgress';
 import { ActionType } from '../actions/ActionType';
-import { FAS } from '../actions/FluxStandardAction';
 import { ProgressTrackModel } from '../models/ProgressTrackModel';
+import produce from 'immer';
+import { fromRecipes } from '../utils/Helper';
 
 type ProgressTracksState = ProgressTrackModel[];
-
-type Handler<A extends FAS> = (
-  state: ProgressTracksState,
-  action: A
-) => ProgressTracksState;
 
 const initialState: ProgressTracksState = [
   {
@@ -24,23 +19,17 @@ const initialState: ProgressTracksState = [
   }
 ];
 
-const addProgressTrack = (state: ProgressTracksState, action: any) => [
-  ...state,
-  action.newBar
-];
+const clamp = (target: number, min: number, max: number) => Math.max(min, Math.min(max, target));
 
-const updateProgressTrack: Handler<UpdateProgressTrack> = (state, action) =>
-  atIndex(state, action.payload.id, _ => action.payload.updatedTrack);
-
-const handlers: Map<ActionType, Handler<FAS>> = new Map([
-  [ActionType.UPDATE_PROGRESS_TRACK, updateProgressTrack],
-  [ActionType.ADD_PROGRESS_TRACK, addProgressTrack]
-]);
-
-export const progressTracks = (state: ProgressTracksState, action: FAS) => {
-  if (state === undefined) {
-    return initialState;
-  }
-  const handler = handlers.get(action.type);
-  return handler !== undefined ? handler(state, action) : state;
+const markProgress = (draft: ProgressTracksState, action: MarkProgress) => {
+  const track = draft[action.payload.id];
+  const unclamped = track.current + action.payload.times * track.level.step;
+  track.current = clamp(unclamped, track.min, track.max);
 };
+
+export const progressTracks = produce(
+  fromRecipes({
+    [ActionType.MARK_PROGRESS]: markProgress
+  }),
+  initialState
+);

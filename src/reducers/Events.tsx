@@ -1,11 +1,10 @@
 import { EventModel, EventType } from './../models/EventModel';
 import { AddEvent } from '../actions/AddEvent';
 import { ActionType } from '../actions/ActionType';
-import { FAS } from '../actions/FluxStandardAction';
+import { produce } from 'immer';
+import { fromRecipes } from '../utils/Helper';
 
 export type EventsState = EventModel[];
-
-type Handler<A> = (state: EventsState, action: A) => EventsState;
 
 const initialState: EventsState = [
   {
@@ -18,19 +17,10 @@ const initialState: EventsState = [
   }
 ];
 
-const addEvent: Handler<AddEvent> = (state, action) => [
-  ...state,
-  action.payload.newEvent
-];
+const addEvent = (draft: EventsState, action: AddEvent) => { draft.push(action.payload); };
 
-const handlers: Map<ActionType, Handler<FAS>> = new Map([
-  [ActionType.ADD_EVENT, addEvent]
-]);
-
-export const events = (state: EventsState, action: FAS) => {
-  if (state === undefined) {
-    return initialState;
-  }
-  const handler = handlers.get(action.type);
-  return handler !== undefined ? handler(state, action) : state;
-};
+export const events = produce(
+  fromRecipes({
+    [ActionType.ADD_EVENT]: addEvent
+  }),
+  initialState);

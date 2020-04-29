@@ -1,6 +1,8 @@
+import { ActionType } from './ActionType';
+
 export type FAS = {
-  type: any;
-  payload?: any;
+  type: ActionType;
+  payload?: unknown;
   error?: boolean;
-  meta?: any;
+  meta?: unknown;
 };

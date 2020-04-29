@@ -1,10 +1,12 @@
 import { EventModel } from '../models/EventModel';
 import { FAS } from './FluxStandardAction';
-
-export type Payload = {
-  newEvent: EventModel;
-};
+import { ActionType } from './ActionType';
 
 export type AddEvent = FAS & {
-  payload: Payload;
+  payload: EventModel;
 };
+
+export const addEvent: (e: EventModel) => AddEvent = (event: EventModel) => ({
+  type: ActionType.ADD_EVENT,
+  payload: event
+});
