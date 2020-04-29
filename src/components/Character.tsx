@@ -27,7 +27,7 @@ const Character = (character: CharacterModel) => (
   <Material.Card>
     <Material.CardHeader title={character.name} />
     <Material.CardContent>
-    <Stats stats={...Array.from(character.stats)} />
+    <Stats stats={Array.from(character.stats)} />
     <Experience experience={character.experience} />
     </Material.CardContent>
   </Material.Card >
