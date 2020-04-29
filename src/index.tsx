@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import reducer from './reducers';
+import * as mui from '@material-ui/core/styles';
 
 import App from './App';
 
@@ -13,7 +14,15 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <mui.ThemeProvider
+        theme={mui.createMuiTheme({
+          zIndex: {
+            appBar: 1350
+          }
+        })}
+      >
+        <App />
+      </mui.ThemeProvider>
     </Provider>
   </React.StrictMode>,
   rootElement
