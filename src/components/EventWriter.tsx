@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Material from '@material-ui/core';
 
 type Props = {
-  addEvent: (text: string) => void;
+  publishEvent: (text: string) => void;
 };
 
 const EventWriter = (props: Props) => {
@@ -12,7 +12,7 @@ const EventWriter = (props: Props) => {
       <Material.Input inputRef={ref} />
       <Material.Button
         onClick={() => {
-          props.addEvent(ref.current.value);
+          props.publishEvent(ref.current.value);
           ref.current.value = '';
         }}
       >

@@ -1,5 +1,5 @@
 import { EventModel, EventType } from './../models/EventModel';
-import { AddEvent } from '../actions/AddEvent';
+import { PublishEvent } from '../actions/PublishEvent';
 import { ActionType } from '../actions/ActionType';
 import { produce } from 'immer';
 import { fromRecipes } from '../utils/Helper';
@@ -17,10 +17,15 @@ const initialState: EventsState = [
   }
 ];
 
-const addEvent = (draft: EventsState, action: AddEvent) => { draft.push(action.payload); };
+const publishEvent = (draft: EventsState, action: PublishEvent) => {
+  draft.push({
+    type: EventType.Story,
+    content: action.payload.text
+  });
+};
 
 export const events = produce(
   fromRecipes({
-    [ActionType.ADD_EVENT]: addEvent
+    [ActionType.PUBLISH_EVENT]: publishEvent
   }),
   initialState);

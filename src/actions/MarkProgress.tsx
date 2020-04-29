@@ -1,7 +1,7 @@
 import { FAS } from './FluxStandardAction';
 import { ActionType } from './ActionType';
 
-export type MarkProgressPayload = {
+type MarkProgressPayload = {
   id: number;
   times: number;
 };

@@ -1,4 +1,4 @@
 export enum ActionType {
-  ADD_EVENT = 'events/add',
+  PUBLISH_EVENT = 'events/publish',
   MARK_PROGRESS = 'progressTracks/mark'
 }
