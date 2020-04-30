@@ -5,8 +5,8 @@ import { MoveModel, MoveType } from '../models/MoveModel';
 import { TriggerMove } from '../actions/TriggerMove';
 
 export type MovesState = {
-  currentMove?: MoveModel<any>;
-  moves: MoveModel<any>[]
+  currentMove?: MoveModel;
+  moves: MoveModel[]
 };
 
 const triggerMove = (draft: MovesState, action: TriggerMove) => {

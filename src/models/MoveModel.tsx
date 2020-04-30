@@ -7,7 +7,7 @@ export enum MoveType {
     FATE = 'Fate'
 }
 
-export type MoveModel<T> = {
+export type MoveModel<T = any> = {
     type: MoveType,
     name: string,
     params?: T,
