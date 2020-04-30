@@ -8,7 +8,7 @@ import { Drawer, AppBar, Toolbar, Typography, Divider, Button } from '@material-
 import { Face, ArrowForwardIos, ArrowBackIos } from '@material-ui/icons';
 
 export default () => {
-  const currentScreen = useSelector(state => state.mainScreens.currentScreen);
+  const currentScreen = useSelector((state) => state.mainScreens.currentScreen);
   const [isOpen, setOpen] = React.useState(false);
   return (
     <div

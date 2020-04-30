@@ -4,7 +4,7 @@ import { fromRecipes } from '../utils/Helper';
 import { MoveModel, MoveType } from '../models/MoveModel';
 import { TriggerMove } from '../actions/TriggerMove';
 
-type MovesState = {
+export type MovesState = {
   currentMove?: MoveModel<any>;
   moves: MoveModel<any>[]
 };

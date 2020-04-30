@@ -4,7 +4,7 @@ import { ProgressTrackModel } from '../models/ProgressTrackModel';
 import produce from 'immer';
 import { fromRecipes } from '../utils/Helper';
 
-type ProgressTracksState = ProgressTrackModel[];
+export type ProgressTracksState = ProgressTrackModel[];
 
 const initialState: ProgressTracksState = [
   {

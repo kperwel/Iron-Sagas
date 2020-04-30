@@ -5,7 +5,7 @@ import { MainScreen } from '../models/MainScreen';
 import { SwitchMainScreen } from '../actions/SwitchMainScreen';
 import { PublishEvent } from '../actions/PublishEvent';
 
-type MainScreenState = {
+export type MainScreenState = {
   currentScreen: MainScreen;
 };
 
