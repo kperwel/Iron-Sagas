@@ -4,7 +4,7 @@ import { MainScreen } from '../models/MainScreen';
 import Events from './Events';
 import EventWriter from './EventWriter';
 import Moves from './Moves';
-import { ButtonGroup, Button } from '@material-ui/core';
+import { ButtonGroup, Button, Box } from '@material-ui/core';
 import { switchMainScreen } from './../actions/SwitchMainScreen';
 
 const MainWindow = () => {
@@ -24,8 +24,21 @@ const MainWindow = () => {
 export default () => {
     const dispatch = useDispatch();
     return (
-        <div>
-            <MainWindow />
+        <Box
+            display="flex"
+            flexDirection="column"
+            flexGrow={1}
+            overflow="hidden"
+            alignItems="center"
+        >
+            <Box
+                flexGrow={1}
+                overflow="auto"
+                height={0}
+                alignSelf="stretch"
+            >
+                <MainWindow />
+            </Box>
             <ButtonGroup>
                 <Button
                     onClick={() => dispatch(switchMainScreen({ nextScreen: MainScreen.EVENTS_LOG }))}
@@ -43,6 +56,6 @@ export default () => {
                     Move
                 </Button>
             </ButtonGroup>
-        </div>
+        </Box>
     );
 };

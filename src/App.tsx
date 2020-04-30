@@ -11,7 +11,10 @@ export default () => {
   const currentScreen = useSelector(state => state.mainScreens.currentScreen);
   const [isOpen, setOpen] = React.useState(false);
   return (
-    <div className="App">
+    <div
+      className="App"
+      id="app"
+    >
       <AppBar>
         <Toolbar>
           <Button

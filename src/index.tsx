@@ -5,12 +5,13 @@ import { Provider } from 'react-redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import reducer from './reducers';
 import * as mui from '@material-ui/core/styles';
+import './index.css';
 
 import App from './App';
 
 const store = createStore(reducer, devToolsEnhancer({}));
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementsByTagName('body')[0];
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
