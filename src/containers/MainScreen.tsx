@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { MainScreen } from '../models/MainScreen';
 import Events from './Events';
 import EventWriter from './EventWriter';
+import Moves from './Moves';
 import { ButtonGroup, Button } from '@material-ui/core';
 import { switchMainScreen } from './../actions/SwitchMainScreen';
 
@@ -12,7 +13,7 @@ const MainWindow = () => {
         case MainScreen.EVENTS_WRITER:
             return (<EventWriter />);
         case MainScreen.MOVES:
-            return (<div> Moves placeholder</div>);
+            return (<Moves />);
         case MainScreen.EVENTS_LOG:
             return (<Events />);
         default:

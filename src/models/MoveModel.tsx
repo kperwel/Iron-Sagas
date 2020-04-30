@@ -1,14 +1,14 @@
 export enum MoveType {
-    ADVENTURE,
-    RELATIONSHIP,
-    COMBAT,
-    SUFFER,
-    QUEST,
-    FATE
+    ADVENTURE = 'Adventure',
+    RELATIONSHIP = 'Relationship',
+    COMBAT = 'Combat',
+    SUFFER = 'Suffer',
+    QUEST = 'Quest',
+    FATE = 'Fate'
 }
 
 export type MoveModel<T> = {
     type: MoveType,
     name: string,
-    params: T,
+    params?: T,
 };
