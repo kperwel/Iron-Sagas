@@ -7,5 +7,6 @@ export enum EventType {
   Story,
   Dialogue,
   Dice,
-  StatusChange
+  StatusChange,
+  Move
 }

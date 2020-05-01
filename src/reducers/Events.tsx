@@ -3,6 +3,7 @@ import { PublishEvent } from '../actions/PublishEvent';
 import { ActionType } from '../actions/ActionType';
 import { produce } from 'immer';
 import { fromRecipes } from '../utils/Helper';
+import { TriggerMove } from '../actions/TriggerMove';
 
 export type EventsState = EventModel[];
 
@@ -24,8 +25,16 @@ const publishEvent = (draft: EventsState, action: PublishEvent) => {
   });
 };
 
+const triggerMove = (draft: EventsState, action: TriggerMove) => {
+  draft.push({
+    type: EventType.Move,
+    content: action.payload.moveName
+  });
+};
+
 export const events = produce(
   fromRecipes({
-    [ActionType.PUBLISH_EVENT]: publishEvent
+    [ActionType.PUBLISH_EVENT]: publishEvent,
+    [ActionType.TRIGGER_MOVE]: triggerMove
   }),
   initialState);
